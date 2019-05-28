@@ -5,6 +5,6 @@ export default class TimeStampRoutes {
   public routes(app): void {
     app
       .route('/api/timestamp/:date_string?')
-      .get(this.timeStampController.toggleCompleteTodos);
+      .get(this.timeStampController.convertDate);
   }
 }

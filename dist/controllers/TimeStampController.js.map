@@ -1,0 +1,1 @@
+{"version":3,"file":"TimeStampController.js","sourceRoot":"","sources":["../../lib/controllers/TimeStampController.ts"],"names":[],"mappings":";;;;;;;;;;AAEA,MAAqB,cAAc;IAAnC;QACS,gBAAW,GAAG,CAAO,GAAY,EAAE,GAAa,EAAE,EAAE;YACzD,MAAM,EAAE,WAAW,EAAE,GAAG,GAAG,CAAC,MAAM,CAAC;YACnC,GAAG,CAAC,IAAI,CAAC,uBAAuB,CAAC,CAAC;QACpC,CAAC,CAAA,CAAC;IACJ,CAAC;CAAA;AALD,iCAKC"}
