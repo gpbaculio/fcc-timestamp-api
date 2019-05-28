@@ -12,7 +12,14 @@ class TodoController {
     constructor() {
         this.convertDate = (req, res) => __awaiter(this, void 0, void 0, function* () {
             const { date_string } = req.params;
-            res.json('ok love you she! hihi');
+            const date = new Date(Number(date_string));
+            if (isNaN(date.getTime())) {
+                console.log('not valid!', date.getTime());
+            }
+            else {
+                console.log('valid! ', date.getTime());
+            }
+            res.json(`${date_string} ok love you she! hihi`);
         });
     }
 }
