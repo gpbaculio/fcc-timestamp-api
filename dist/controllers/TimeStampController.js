@@ -12,7 +12,11 @@ class TimeStampController {
     constructor() {
         this.convertDate = (req, res) => __awaiter(this, void 0, void 0, function* () {
             const { date_string } = req.params;
+            console.log('date_string ', typeof date_string);
             let date = new Date(Number(date_string));
+            if (date_string.includes('-')) {
+                date = new Date(date_string);
+            }
             if (typeof date_string === 'undefined') {
                 date = new Date(Date.now());
                 res.json({ unix: date.getTime(), utc: date.toUTCString() });
