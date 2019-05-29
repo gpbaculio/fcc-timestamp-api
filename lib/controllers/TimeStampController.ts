@@ -1,14 +1,16 @@
 import { Request, Response } from 'express';
 
-export default class TodoController {
+export default class TimeStampController {
   public convertDate = async (req: Request, res: Response) => {
-    const { date_string } = req.params;
-    const date = new Date(Number(date_string));
-    if (isNaN(date.getTime())) {
+    const { date_string }: { date_string?: string } = req.params;
+    let date = new Date(Number(date_string));
+    if (typeof date_string === 'undefined') {
+      date = new Date(Date.now());
+      res.json({ unix: date.getTime(), utc: date.toUTCString() });
+    } else if (date_string && isNaN(date.getTime())) {
       res.json({ error: 'invalid Date' });
     } else {
-      console.log('valid! ', date.getTime());
+      res.json({ unix: date.getTime(), utc: date.toUTCString() });
     }
-    res.json(`${date_string} ok love you she! hihi`);
   };
 }

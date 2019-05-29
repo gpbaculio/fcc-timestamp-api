@@ -8,20 +8,23 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-class TodoController {
+class TimeStampController {
     constructor() {
         this.convertDate = (req, res) => __awaiter(this, void 0, void 0, function* () {
             const { date_string } = req.params;
-            const date = new Date(Number(date_string));
-            if (isNaN(date.getTime())) {
-                console.log('not valid!', date.getTime());
+            let date = new Date(Number(date_string));
+            if (typeof date_string === 'undefined') {
+                date = new Date(Date.now());
+                res.json({ unix: date.getTime(), utc: date.toUTCString() });
+            }
+            else if (date_string && isNaN(date.getTime())) {
+                res.json({ error: 'invalid Date' });
             }
             else {
-                console.log('valid! ', date.getTime());
+                res.json({ unix: date.getTime(), utc: date.toUTCString() });
             }
-            res.json(`${date_string} ok love you she! hihi`);
         });
     }
 }
-exports.default = TodoController;
+exports.default = TimeStampController;
 //# sourceMappingURL=TimeStampController.js.map
