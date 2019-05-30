@@ -4,7 +4,7 @@ export default class TimeStampController {
   public convertDate = async (req: Request, res: Response) => {
     const { date_string }: { date_string?: string } = req.params;
     let date = new Date(Number(date_string));
-    if (date_string.includes('-')) {
+    if (typeof date_string !== 'undefined' && date_string.includes('-')) {
       date = new Date(date_string);
     }
     if (typeof date_string === 'undefined') {
