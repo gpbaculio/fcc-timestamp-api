@@ -16,7 +16,6 @@ class TimeStampController {
             if (typeof date_string !== 'undefined' && date_string.includes('-')) {
                 date = new Date(date_string);
             }
-            console.log('date_string ', date_string);
             if (typeof date_string === 'undefined') {
                 date = new Date(Date.now());
                 res.json({ unix: date.getTime(), utc: date.toUTCString() });
