@@ -14,6 +14,7 @@ class App {
         extended: true
       })
     );
+    this.app.use();
     this.app.use(cors({ optionSuccessStatus: 200 })); // some legacy browsers choke on 204
     this.app.use(bodyParser.json());
     this.timesTampRoutes.routes(this.app);
